@@ -78,6 +78,7 @@ class LinkedList {
         currNode = this.next
       }
       this.tail = currNode
+      currNode.next = null
       this.length--
       return pointer
     }
