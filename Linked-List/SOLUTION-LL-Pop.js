@@ -63,7 +63,7 @@ class LinkedList {
   /// WRITE POP METHOD HERE ///
   pop () {
     if (!this.head) {
-      return null
+      return undefined
     } else if (this.length === 1) {
       this.length--
       const pointer = this.head
