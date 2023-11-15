@@ -95,6 +95,25 @@ class LinkedList {
     temp.value = value
     return true
   }
+
+  insert (index, value) {
+    if (index < 0 || index > this.length) {
+      return undefined
+    }
+    if (index === this.length) {
+      return this.push(value)
+    }
+    if (index === 0) {
+      return this.unshift(value)
+    }
+
+    const newNode = new Node(value)
+    const temp = this.get(index - 1)
+    newNode.next = temp.next
+    temp.next = newNode
+    this.length++
+    return true
+  }
 }
 
 const myLinkedList = new LinkedList(6)
