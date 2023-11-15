@@ -13,6 +13,40 @@ class LinkedList {
     this.length = 1
   }
 
+  printList () {
+    let temp = this.head
+    while (temp !== null) {
+      console.log(temp.value)
+      temp = temp.next
+    }
+  }
+
+  getHead () {
+    if (this.head === null) {
+      console.log('Head: null')
+    } else {
+      console.log('Head: ' + this.head.value)
+    }
+  }
+
+  getTail () {
+    if (this.tail === null) {
+      console.log('Tail: null')
+    } else {
+      console.log('Tail: ' + this.tail.value)
+    }
+  }
+
+  getLength () {
+    console.log('Length: ' + this.length)
+  }
+
+  makeEmpty () {
+    this.head = null
+    this.tail = null
+    this.length = 0
+  }
+
   push (value) {
     const newNode = new Node(value)
     if (!this.head) {
@@ -27,9 +61,7 @@ class LinkedList {
   }
 
   pop () {
-    if (!this.head) {
-      return undefined
-    }
+    if (this.length === 0) return undefined
     let temp = this.head
     let pre = this.head
     while (temp.next) {
@@ -60,9 +92,7 @@ class LinkedList {
   }
 
   shift () {
-    if (!this.head) {
-      return undefined
-    }
+    if (this.length === 0) return undefined
     const temp = this.head
     this.head = this.head.next
     this.length--
@@ -73,6 +103,7 @@ class LinkedList {
     return temp
   }
 
+  /// WRITE GET METHOD HERE ///
   get (index) {
     if (index < 0 || index >= this.length) {
       return undefined
@@ -85,11 +116,20 @@ class LinkedList {
   }
 }
 
-const myLinkedList = new LinkedList(6)
-myLinkedList.push(7)
-myLinkedList.push(8)
-myLinkedList.push(9)
-myLinkedList.pop()
-myLinkedList.unshift(5)
-myLinkedList.shift()
-myLinkedList.get(3)
+function test () {
+  const myLinkedList = new LinkedList(0)
+  myLinkedList.push(1)
+  myLinkedList.push(2)
+  myLinkedList.push(3)
+
+  console.log(myLinkedList.get(3).value)
+}
+
+test()
+
+/*
+    EXPECTED OUTPUT:
+    ----------------
+    3
+
+*/
