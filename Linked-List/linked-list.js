@@ -132,6 +132,23 @@ class LinkedList {
     this.length--
     return temp
   }
+
+  reverse () {
+    let pre = null
+    let temp = this.head
+    let next = temp.next
+
+    this.head = this.tail
+    this.tail = temp
+
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next
+      temp.next = pre
+      pre = temp
+      temp = next
+    }
+    return this
+  }
 }
 
 const myLinkedList = new LinkedList(6)
